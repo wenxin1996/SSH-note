@@ -1,0 +1,62 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<beans xmlns="http://www.springframework.org/schema/beans"
+       xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+       xsi:schemaLocation="http://www.springframework.org/schema/beans http://www.springframework.org/schema/beans/spring-beans.xsd">
+
+    <bean id="dataSource" class="org.apache.commons.dbcp2.BasicDataSource" destroy-method="close">
+        <property name="driverClassName" value="com.mysql.jdbc.Driver"></property>
+        <property name="url" value="jdbc:mysql://localhost:3306/note"></property>
+        <property name="username" value="wenxin"/>
+        <property name="password" value="123456"/>
+    </bean>
+    <!-- session factory -->
+    <bean id="sessionFactory" class="org.springframework.orm.hibernate4.LocalSessionFactoryBean">
+        <property name="dataSource" ref="dataSource"></property>
+        <property name="hibernateProperties">
+            <props>
+                <prop key="hibernate.dialect">org.hibernate.dialect.MySQLDialect</prop>
+                <prop key="hibernate.show_sql">true</prop>
+                <prop key="hibernate.connection.url">jdbc:mysql://localhost:3306/note</prop>
+                <prop key="hibernate.connection.driver_class">com.mysql.jdbc.Driver</prop>
+            </props>
+        </property>
+        <property name="annotatedClasses">
+            <list>
+                <value>bean.Notebar</value>
+                <value>bean.Note</value>
+            </list>
+        </property>
+        <property name="mappingLocations">
+            <list>
+                <value>classpath:bean/Notebar.hbm.xml</value>
+                <value>classpath:bean/Note.hbm.xml</value>
+            </list>
+        </property>
+    </bean>
+
+    <bean id="notbar" class="Dao.NoteDaoImpl">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+    <bean id="note" class="Dao.NoteConImpl">
+        <property name="sessionFactory" ref="sessionFactory"/>
+    </bean>
+
+    <bean id="Notebarservice" class="service.Notebarservice">
+        <property name="noteDao" ref="notbar"/>
+    </bean>
+    <bean id="noteservice" class="service.NoteService">
+        <property name="note" ref="note"/>
+    </bean>
+
+    <bean id="loadNotebar" class="action.loadNotebar">
+        <property name="getNotebar" ref="Notebarservice"/>
+    </bean>
+    <bean id="loadNote" class="action.loadNote">
+        <property name="noteService" ref="noteservice"/>
+    </bean>
+    <bean id="NoteAdd" class="action.NoteAdd">
+        <property name="noteService" ref="noteservice"/>
+        <property name="notebar" ref="Notebarservice"/>
+    </bean>
+
+</beans>

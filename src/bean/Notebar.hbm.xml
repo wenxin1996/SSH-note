@@ -1,0 +1,24 @@
+<?xml version='1.0' encoding='utf-8'?>
+<!DOCTYPE hibernate-mapping PUBLIC
+    "-//Hibernate/Hibernate Mapping DTD 3.0//EN"
+    "http://www.hibernate.org/dtd/hibernate-mapping-3.0.dtd">
+<hibernate-mapping>
+
+    <class name="bean.Notebar" table="notebar" schema="note">
+        <id name="id">
+            <column name="id" sql-type="int(11)"/>
+        </id>
+        <property name="time">
+            <column name="time" sql-type="timestamp"/>
+        </property>
+        <property name="headline">
+            <column name="headline" sql-type="text" not-null="true"/>
+        </property>
+        <property name="link">
+            <column name="link" sql-type="varchar(200)" length="200" not-null="true"/>
+        </property>
+        <property name="notenumber">
+            <column name="notenumber" sql-type="int(11)" not-null="true"/>
+        </property>
+    </class>
+</hibernate-mapping>
