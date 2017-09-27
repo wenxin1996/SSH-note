@@ -1,7 +1,6 @@
 package Dao;
 
 import bean.Note;
-import bean.Notebar;
 
 import java.util.List;
 

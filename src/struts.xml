@@ -16,7 +16,16 @@
             <result name="success">notecon.jsp</result>
         </action>
         <action name="noteadd" class="NoteAdd">
+            <result name="success">success.html</result>
+        </action>
+        <action name="loadhome" class="loadHtmlber">
             <result name="success">index.jsp</result>
+        </action>
+        <action name="loadhtml" class="loadHtml">
+            <result name="success">rainbow.jsp</result>
+        </action>
+        <action name="htmladd" class="HtmlAdd">
+            <result name="success">success.html</result>
         </action>
     </package>
 

@@ -49,7 +49,7 @@ public class NoteAdd extends ActionSupport {
         if(noteService.add(note)==0){
             Notebar notebar=new Notebar();
             notebar.setNotenumber(1);
-            notebar.setHeadline("无标题");
+            notebar.setHeadline("日常");
             notebar.setLink("eyesOnYou");
             NotebarService.add(notebar);
         }
