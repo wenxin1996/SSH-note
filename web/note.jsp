@@ -11,9 +11,9 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,  initial-scale=1.0,maximum-scale=1.0, user-scalable=no">
-    <link rel="stylesheet" href="css/bootstrap.min.css">
-    <script type="text/javascript" src="js/jquery-3.2.1.js"></script>
-    <script type="text/javascript" src="js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="http://120.24.220.50/note/css/bootstrap.min.css">
+    <script type="text/javascript" src="http://120.24.220.50/note/js/jquery-3.2.1.js"></script>
+    <script type="text/javascript" src="http://120.24.220.50/note/js/bootstrap.min.js"></script>
     <title>Note</title>
 </head>
 <body>
@@ -35,13 +35,14 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="index.html">HOME</a>
+            <a class="navbar-brand" href="http://120.24.220.50/note/loadhome.action">HOME</a>
         </div>
         <div class="collapse navbar-collapse" id="example-navbar-collapse">
             <ul class="nav navbar-nav">
-                <li><a href="index.jsp">home</a></li>
-                <li class="active"><a href="loadnote.action">note</a></li>
-                <li><a href="noteAdd.html">note+</a></li>
+                <li><a href="http://120.24.220.50/note/loadhome.action">home</a></li>
+                <li class="active"><a href="http://120.24.220.50/note/loadNotebar.action">note</a></li>
+                <li><a href="http://120.24.220.50/note/noteAdd.html">note+</a></li>
+                <li><a href="http://120.24.220.50/note/htmlAdd.html">html+</a></li>
             </ul>
         </div>
     </div>
@@ -52,7 +53,7 @@
         <s:iterator value="list">
         <div class="row">
             <div class="col-lg-12">
-                <a href="loadnote?id=<s:property value="id"/>">
+                <a href="http://120.24.220.50/note/loadnote?id=<s:property value="id"/>">
                     <h4 class="text-left" style="color: #EE7A6B">
                         <s:property value="headline"/>
                         <small class="text-muted">--<s:property value="time"/></small>
