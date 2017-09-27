@@ -10,5 +10,8 @@
 分层为action、bean、service、Dao，bean储存对象实例，Dao执行数据库的查询、service实现逻辑，在action和Dao之间做中间操作，
 action实现页面中数据的接受和数据处理后页面的分配。<br><br>
 
+spring利用依赖注入链接struts2及Hibernate中的各个应用类，如把service层的类注入到action层的类里，实现两个类的互通，
+这样就不用在action类里创建service类，使得代码的耦合降低，增强类的独立性。
+
 测试时，有过查询几次数据库后，不响应。发现Dao的查询忘记提交事务（Transaction）。也要注意关闭session。
 
