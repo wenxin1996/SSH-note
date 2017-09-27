@@ -15,3 +15,6 @@ spring利用依赖注入链接struts2及Hibernate中的各个应用类，如把s
 
 测试时，有过查询几次数据库后，不响应。发现Dao的查询忘记提交事务（Transaction）。也要注意关闭session。
 
+## Ps：
+上传个自己画的图标，appicon.png
+
