@@ -22,8 +22,9 @@ public class NoteService {
     public List<Note> getallnote(){
         return noteImp.getAllNote();
     }
-    public void delatebytime(String time){
-        noteImp.deleteNote(time);
+
+    public void deleteNote(Note note){
+        noteImp.deleteNote(note);
     }
 
     //添加note到数据库，若和最新note表记录的发布时间在同一天则新note的barid和之前的一样，否则加一
@@ -47,4 +48,10 @@ public class NoteService {
     public List<Note> getbybarid(int id){
         return noteImp.getByBarId(id);
     }
+
+    public Note getNote(int id){
+        return noteImp.getNote(id);
+    }
+
+    public void updadeNote(Note note){noteImp.updateNote(note);}
 }

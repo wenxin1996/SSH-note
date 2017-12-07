@@ -9,7 +9,7 @@ public interface NoteCon {
     public void addNote(Note note);
 
     //删除
-    public void deleteNote(String time);
+    public void deleteNote(Note note);
 
     //修改
     public void updateNote(Note note);
@@ -20,5 +20,7 @@ public interface NoteCon {
     public List<Note> getByBarId(int barid);
 
     public Note getlastNote();
+
+    public Note getNote(int id);
 
 }

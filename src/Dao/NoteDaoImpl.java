@@ -36,7 +36,10 @@ public class NoteDaoImpl implements NoteDao {
     }
     @Override
     public void updateNotebar(Notebar notebar){
-
+        Session s = sessionFactory.openSession();
+        Transaction tx= s.beginTransaction();
+        s.update(notebar);
+        tx.commit();
     }
     @Override
     public List<Notebar> getAllNotebar(){
@@ -49,7 +52,22 @@ public class NoteDaoImpl implements NoteDao {
     }
     @Override
     public Notebar getNotebarById(int id){
-        Notebar notebar=null;
-        return notebar;
+        List<Notebar> list=null;
+        Session s = sessionFactory.openSession();
+        Transaction tx= s.beginTransaction();
+        list=s.createQuery("from Notebar notebar where id="+id).list();
+        tx.commit();
+        return list.get(0);
     }
+    @Override
+    public List<Notebar> getNotebarByPage(int page){
+        List list=null;
+        int firstnumber=5*(page-1);
+        Session s = sessionFactory.openSession();
+        Transaction tx= s.beginTransaction();
+        list=s.createQuery("from Notebar notebar").setFirstResult(firstnumber).setMaxResults(5).list();
+        tx.commit();
+        return list;
+    }
+
 }

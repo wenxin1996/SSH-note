@@ -19,4 +19,7 @@ public interface NoteDao {
     //根据学号查询
     public Notebar getNotebarById(int id);
 
+    public List<Notebar> getNotebarByPage(int page);
+
+
 }

@@ -25,15 +25,18 @@ public class NoteConImpl implements NoteCon{
         transaction.commit();
     }
     @Override
-    public void deleteNote(String time){
+    public void deleteNote(Note note){
         Session session=sessionFactory.openSession();
         Transaction transaction=session.beginTransaction();
-        session.delete("from Note note where note.time="+time);
+        session.delete(note);
         transaction.commit();
     }
     @Override
     public void updateNote(Note notebar){
-
+        Session session=sessionFactory.openSession();
+        Transaction transaction=session.beginTransaction();
+        session.update(notebar);
+        transaction.commit();
     }
     @Override
     public List<Note> getAllNote(){
@@ -58,6 +61,15 @@ public class NoteConImpl implements NoteCon{
         Session session=sessionFactory.openSession();
         Transaction transaction=session.beginTransaction();
         List<Note> notes=session.createQuery("from Note order by id desc").setFirstResult(0).setMaxResults(1).list();
+        Note note=notes.get(0);
+        transaction.commit();
+        return note;
+    }
+    @Override
+    public Note getNote(int id){
+        Session session=sessionFactory.openSession();
+        Transaction transaction=session.beginTransaction();
+        List<Note> notes=session.createQuery("from  Note where id="+id).list();
         Note note=notes.get(0);
         transaction.commit();
         return note;

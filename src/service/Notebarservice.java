@@ -21,7 +21,30 @@ public class Notebarservice {
         list=noteDao.getAllNotebar();
         return list;
     }
+
+    public List<Notebar> getNotebarByPage(int page){
+        List list=new ArrayList();
+        list=noteDao.getNotebarByPage(page);
+        return list;
+    }
+
+    public List<Notebar> getNotebar(int page){
+        List list=new ArrayList();
+        list=noteDao.getAllNotebar();
+        return list;
+    }
+
     public void add(Notebar notebar){
         noteDao.addNote(notebar);
     }
+
+    public Notebar getNotebarById(int id){
+        return noteDao.getNotebarById(id);
+    }
+
+    public void updataNotebar(Notebar notebar){
+        noteDao.updateNotebar(notebar);
+    }
+
+
 }

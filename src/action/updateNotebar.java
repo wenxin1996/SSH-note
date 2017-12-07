@@ -1,16 +1,15 @@
 package action;
 
+import bean.Notebar;
 import org.springframework.beans.factory.annotation.Autowired;
 import service.Notebarservice;
 import com.opensymphony.xwork2.Action;
 import com.opensymphony.xwork2.ActionSupport;
 
-import java.util.ArrayList;
-import java.util.List;
 
-public class loadNotebar extends ActionSupport{
-    private List list=new ArrayList();
-    private int page=1;
+public class updateNotebar extends ActionSupport{
+    private int id;
+    private String headline;
     @Autowired
     private Notebarservice getNotebar;
 
@@ -18,25 +17,19 @@ public class loadNotebar extends ActionSupport{
         this.getNotebar = getNotebar;
     }
 
-    public int getPage() {
-        return page;
+    public void setId(int id) {
+        this.id = id;
     }
 
-    public void setPage(int page) {
-        this.page = page;
-    }
-
-    public List getList() {
-        return list;
-    }
-
-    public void setList(List list) {
-        this.list = list;
+    public void setHeadline(String headline) {
+        this.headline = headline;
     }
 
     @Override
     public String execute() throws Exception {
-        list=getNotebar.getNotebarByPage(page);
+        Notebar notebar=getNotebar.getNotebarById(id);
+        notebar.setHeadline(headline);
+        getNotebar.updataNotebar(notebar);
         return Action.SUCCESS;
     }
 }
