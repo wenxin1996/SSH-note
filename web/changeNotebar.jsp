@@ -1,21 +1,17 @@
 <%@ taglib prefix="s" uri="/struts-tags" %>
-<%--
-  Created by IntelliJ IDEA.
-  User: Big_Boss
-  Date: 2017/9/25
-  Time: 13:32
-  To change this template use File | Settings | File Templates.
---%>
 <%@ page contentType="text/html;charset=UTF-8" language="java" %>
+<%@ page import="java.util.*" %>
 <html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width,  initial-scale=1.0,maximum-scale=1.0, user-scalable=no">
-    <link rel="stylesheet" href="http://localhost:8080/css/bootstrap.min.css">
+    <link rel="stylesheet" href="css/bootstrap.min.css">
     <script type="text/javascript" src="http://localhost:8080/js/jquery-3.2.1.js"></script>
     <script type="text/javascript" src="http://localhost:8080/js/bootstrap.min.js"></script>
     <title>Note</title>
 </head>
+<body>
+
 <style>
     .img-com{
         max-width: 100%;
@@ -24,7 +20,7 @@
         text-decoration: none;
     }
 </style>
-<body>
+
 <nav class="navbar navbar-default" role="navigation">
     <div class="container-fluid">
         <div class="navbar-header">
@@ -45,28 +41,25 @@
         </div>
     </div>
 </nav>
+
 <section>
     <div class="container">
-        <s:iterator value="list">
         <div class="row">
-            <div class="col-lg-12">
-                <div class="row">
-                    <div class="col-lg-1">
-                        <button class="btn btn-default" onclick=window.open("http://localhost:8080/changeNote.jsp?id=<s:property value="id"/>&content=<s:property value="content"/>")>改</button>
+            <div class="col-lg-6 col-ms-12">
+                <form class="form" action="http://localhost:8080/updatenotebar.action" role="form">
+                    <div class="form-group">
+                        <input name="id" class="btn btn-primary" readonly="readonly" value="<%=request.getParameter("id")%>">
                     </div>
-                    <div class="col-lg-10">
-                        <h5 class="text-muted">--<s:property value="time"/></h5>
-                        <h5 class="text-left">
-                            <s:property value="content"/>
-                        </h5>
+                    <div class="form-group">
+                        <input class="form-control" value="<%=request.getParameter("headline")%>" readonly="readonly">
+                        <input name="headline" class="form-control">
                     </div>
-                </div>
-            </div>
-            <div class="col-xs-12">
-                <hr>
+                    <div class="form-group">
+                        <button class="btn btn-block btn-success" type="submit">提交</button>
+                    </div>
+                </form>
             </div>
         </div>
-        </s:iterator>
     </div>
 </section>
 

@@ -11,10 +11,9 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width,  initial-scale=1.0,maximum-scale=1.0, user-scalable=no">
-  <link rel="stylesheet" href="http://120.24.220.50/note/css/bootstrap.min.css">
-  <link rel="icon" href="https://github.com/wenxin1996/SSH-note/blob/master/appicon.png?raw=true">
-  <script type="text/javascript" src="http://120.24.220.50/note/js/jquery-3.2.1.js"></script>
-  <script type="text/javascript" src="http://120.24.220.50/note/js/bootstrap.min.js"></script>
+  <link rel="stylesheet" href="http://localhost:8080/css/bootstrap.min.css">
+  <script type="text/javascript" src="http://localhost:8080/js/jquery-3.2.1.js"></script>
+  <script type="text/javascript" src="http://localhost:8080/js/bootstrap.min.js"></script>
   <title>Note</title>
 </head>
 <style>
@@ -38,14 +37,14 @@
         <span class="icon-bar"></span>
         <span class="icon-bar"></span>
       </button>
-      <a class="navbar-brand" href="http://120.24.220.50/note/loadhome.action">HOME</a>
+      <a class="navbar-brand" href="http://localhost:8080/loadhome.action">HOME</a>
     </div>
     <div class="collapse navbar-collapse" id="example-navbar-collapse">
       <ul class="nav navbar-nav">
-        <li class="active"><a href="http://120.24.220.50/note/loadhome.action">home</a></li>
-        <li><a href="http://120.24.220.50/note/loadNotebar.action">note</a></li>
-        <li><a href="http://120.24.220.50/note/noteAdd.html">note+</a></li>
-        <li><a href="http://120.24.220.50/note/htmlAdd.html">html+</a></li>
+        <li class="active"><a href="http://localhost:8080/loadhome.action">home</a></li>
+        <li><a href="http://localhost:8080/loadNotebar.action">note</a></li>
+        <li><a href="http://localhost:8080/noteAdd.html">note+</a></li>
+        <li><a href="http://localhost:8080/htmlAdd.html">html+</a></li>
       </ul>
     </div>
   </div>
@@ -56,12 +55,12 @@
     <s:iterator value="list">
       <div class="row">
         <div class="col-lg-3 col-xs-4 text-center">
-          <a href="http://120.24.220.50/note/loadhtml?id=<s:property value="id"/>">
+          <a href="http://localhost:8080/loadhtml?id=<s:property value="id"/>">
             <img class="img-rounded img-com" src="<s:property value="picture"/> " style="max-width: 100%"/>
           </a>
         </div>
         <div class="col-lg-6">
-          <a href="http://120.24.220.50/note/loadhtml?id=<s:property value="id"/>">
+          <a href="http://localhost:8080/loadhtml?id=<s:property value="id"/>">
             <h3 class="text-left" style="color: #EE7A6B">
               <s:property value="headline"/>
             </h3>
